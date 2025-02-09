@@ -9,6 +9,25 @@ interface Props {
   className?: string
 }
 
+const defaultIngredients = [
+  {
+    value: '1',
+    text: 'Сырный соус',
+  },
+  {
+    value: '2',
+    text: 'Моцаррелла',
+  },
+  {
+    value: '3',
+    text: 'Чесночный соус',
+  },
+  {
+    value: '3',
+    text: 'Соленные огурчики',
+  },
+]
+
 export const Filters: React.FC<React.PropsWithChildren<Props>> = ({
   className,
 }) => (
@@ -40,36 +59,10 @@ export const Filters: React.FC<React.PropsWithChildren<Props>> = ({
     {/* ingredients */}
     <CheckboxFiltersGroup
       title='Ингридиенты'
-      limit={6}
       className='mt-5'
-      defaultItems={[
-        {
-          value: '1',
-          text: 'Мясо',
-        },
-        {
-          value: '2',
-          text: 'Сыр',
-        },
-        {
-          value: '3',
-          text: 'Помидор',
-        },
-      ]}
-      items={[
-        {
-          value: '1',
-          text: 'Мясо',
-        },
-        {
-          value: '2',
-          text: 'Сыр',
-        },
-        {
-          value: '3',
-          text: 'Помидор',
-        },
-      ]}
+      limit={6}
+      defaultItems={defaultIngredients}
+      items={defaultIngredients}
     />
   </div>
 )

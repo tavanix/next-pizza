@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { FilterCheckbox, FilterCheckboxProps } from './filter-checkbox'
 import { Input } from '../ui'
@@ -10,14 +12,17 @@ interface Props {
   defaultItems?: Item[]
   limit?: number
   searchInputPlaceholder?: string
+  onChange?: (values: string[]) => void
+  defaultValue?: string
   className?: string
-  selectedIds?: Set<string>
-  onClickCheckbox?: (value: string) => void
-  loading?: boolean
-  name?: string
+
+  // selectedIds?: Set<string>
+  // onClickCheckbox?: (value: string) => void
+  // loading?: boolean
+  // name?: string
 }
 
-export const CheckboxFiltersGroup: React.FC<Props> = (
+export const CheckboxFiltersGroup: React.FC<Props> = ({
   title,
   items,
   defaultItems,
@@ -25,20 +30,22 @@ export const CheckboxFiltersGroup: React.FC<Props> = (
   searchInputPlaceholder = 'Поиск...',
   className,
   onChange,
-  defaultValue
-) => {
-  console.log(items)
+  defaultValue,
+}) => {
+  const [showAll, setShowAll] = React.useState(false)
 
   return (
     <div className={className}>
-      {/* <p className='font-bold mb-3'>{title}</p>
+      <p className='font-bold mb-3'>{title}</p>
 
-      <div className='mb-5'>
-        <Input
-          placeholder={searchInputPlaceholder}
-          className='bg-gray-50 border-none'
-        />
-      </div>
+      {showAll && (
+        <div className='mb-5'>
+          <Input
+            placeholder={searchInputPlaceholder}
+            className='bg-gray-50 border-none'
+          />
+        </div>
+      )}
 
       <div className='flex flex-col gap-4 max-h-96 pr-2 overflow-auto scrollbar'>
         {items.map((item, index) => (
@@ -48,12 +55,10 @@ export const CheckboxFiltersGroup: React.FC<Props> = (
             value={item.value}
             endAdornment={item.endAdornment}
             checked={false}
-            onCheckedChange={() => {
-              console.log('checked')
-            }}
+            onCheckedChange={(ids) => console.log(ids)}
           />
         ))}
-      </div> */}
+      </div>
     </div>
   )
 }
