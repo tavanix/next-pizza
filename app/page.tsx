@@ -25,7 +25,8 @@ export default function Home() {
           {/* content */}
           <div className='flex flex-col gap-16'>
             <ProductsGroupList
-              title='Пицца'
+              id='pizzas'
+              title='Пиццы'
               items={[
                 {
                   id: 1,
@@ -64,6 +65,7 @@ export default function Home() {
             />
 
             <ProductsGroupList
+              id='combo'
               title='Комбо'
               items={[
                 {
@@ -99,7 +101,7 @@ export default function Home() {
                     'https://media.dodostatic.net/image/r:584x584/0194d4f6904975a5a6427e297591980d.avif',
                 },
               ]}
-              categoryId={1}
+              categoryId={2}
             />
           </div>
         </div>
