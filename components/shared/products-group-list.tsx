@@ -9,6 +9,7 @@ import { ProductCard } from './product-card'
 import { useCategoryStore } from '@/store/category'
 
 interface Props {
+  id: string
   title: string
   items: any[]
   categoryId: number
@@ -17,6 +18,7 @@ interface Props {
 }
 
 export const ProductsGroupList: React.FC<Props> = ({
+  id,
   title,
   items,
   categoryId,
