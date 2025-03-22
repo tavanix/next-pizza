@@ -1,4 +1,4 @@
-import { prisma } from '@/prisma/prisma-client'
+import { prisma } from '../../../../prisma/prisma-client'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(req: NextRequest) {
@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
         // mode: 'insensitive',
       },
     },
-    take: 5,
+    take: 5, // limit to return
   })
 
   return NextResponse.json(products)
